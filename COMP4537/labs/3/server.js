@@ -10,16 +10,14 @@ const FILENAME = "file.txt";
 http.createServer(function (req, res) {
     const query = url.parse(req.url, true);
 
-    console.log(query);
-
-    if (query.pathname === "/writeFile/") {
+    if (query.pathname === "/COMP4537/labs/3/writeFile/") {
         const text = query.query["text"];
 
         fs.appendFile(FILENAME, text + "\n", (err) => {
             if (err) {
                 res.writeHead(200, {
                     "Content-type": "text/html"
-                });
+                }); 
                 res.end(err);
             }
 
@@ -28,7 +26,7 @@ http.createServer(function (req, res) {
             });
             res.end(`The content "${text}" was appended to file ${FILENAME}`);
         });
-    } else if (query.pathname === "/readFile/file.txt") {
+    } else if (query.pathname === "/COMP4537/labs/3/readFile/file.txt") {
         fs.readFile(FILENAME, "utf8", (err, data) => {
             if (err) {
                 res.writeHead(200, {
