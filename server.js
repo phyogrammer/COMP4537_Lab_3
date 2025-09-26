@@ -17,4 +17,4 @@ class Server {
     }
 }
 
-Server.start();
+module.exports.Server.start();
