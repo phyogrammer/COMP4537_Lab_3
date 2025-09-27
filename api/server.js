@@ -1,5 +1,5 @@
 const http = require("http");
-const Router = require("./modules/router");
+const Router = require("./modules/router.js")
 
 class Server {
     static start() {

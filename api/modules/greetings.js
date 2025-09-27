@@ -1,5 +1,5 @@
 const greetings = require("../lang/en/en.js");
-const utils = require("./utils.js");
+const utils = require("./utils.js")
 
 class Greetings {
     static greetings(req, res, queryParams) {

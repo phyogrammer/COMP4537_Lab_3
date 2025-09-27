@@ -1,5 +1,5 @@
-const file = require('./file');
-const greetings = require('./greetings');
+const file = require('./file.js');
+const greetings = require('./greetings.js');
 
 class Router {
     static handleRequest(req, res) {
