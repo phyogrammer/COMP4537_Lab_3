@@ -2,7 +2,8 @@ const http = require("http");
 const Router = require("./modules/router.js")
 
 class Server {
-    static start() {
+    // for local development
+    static startLocal() {
         const server = http.createServer((req, res) => {
             try {
                 Router.handleRequest(req, res);
@@ -13,17 +14,14 @@ class Server {
             }
         });
 
-        // For local development
-        if (process.env.NODE_ENV !== 'production') {
-            server.listen(8080);
-            console.log("Server is running and listening on port 8080...");
-        }
+        server.listen(8080);
+        console.log("Server is running and listening on port 8080...");
 
         return server;
     }
 
-    // Vercel handler function
-    static handler(req, res) {
+    // for vercel
+    static startVercel(req, res) {
         try {
             Router.handleRequest(req, res);
         } catch (error) {
@@ -34,10 +32,9 @@ class Server {
     }
 }
 
-// Export for Vercel
-module.exports = Server.handler;
-
 // Start server for local development
 if (require.main === module) {
-    Server.start();
+    Server.startLocal();
+} else {
+    module.exports = Server.startVercel;
 }

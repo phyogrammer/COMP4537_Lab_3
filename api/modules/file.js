@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const FILENAME = "file.txt";
+const FILENAME = "/tmp/file.txt";
 
 class File {
     static writeFile(req, res, queryParams) {
