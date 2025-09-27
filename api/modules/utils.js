@@ -1,3 +1,7 @@
-exports.getDate = function () {
-    return Date();
+class Utils {
+    static getDate() {
+        return Date();
+    }
 }
+
+module.exports = Utils;
