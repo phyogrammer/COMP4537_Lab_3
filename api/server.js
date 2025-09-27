@@ -32,7 +32,6 @@ class Server {
     }
 }
 
-// Start server for local development
 if (require.main === module) {
     Server.startLocal();
 } else {
